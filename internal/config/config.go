@@ -7,8 +7,9 @@ import (
 )
 
 type Config struct {
-	Port     string `env:"SERVER_PORT" envDefault:"80"`
-	LogLevel string `env:"LOG_LEVEL" envDefault:"info"`
+	Port           string `env:"SERVER_PORT" envDefault:"80"`
+	LogLevel       string `env:"LOG_LEVEL" envDefault:"info"`
+	LogAllRequests bool   `env:"LOG_ALL_REQUESTS" envDefault:"false"`
 }
 
 func New() *Config {
