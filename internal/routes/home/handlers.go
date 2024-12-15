@@ -13,6 +13,8 @@ import (
 
 func Home(c echo.Context) error {
 	log := c.Get(middleware.LoggerKey).(*logger.Logger)
+	log.Info("Home page accessed")
+
 	component := components.HomePage()
 
 	return render.Render(c, http.StatusOK, component, *log)
