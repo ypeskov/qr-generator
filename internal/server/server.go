@@ -47,7 +47,6 @@ func HTTPErrorHandler(err error, c echo.Context) {
 		code = he.Code
 	}
 
-	// Возвращаем JSON-ответ с ошибкой (но не логируем)
 	c.JSON(code, map[string]interface{}{
 		"error":   http.StatusText(code),
 		"message": err.Error(),
