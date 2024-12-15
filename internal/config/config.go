@@ -1,8 +1,6 @@
 package config
 
 import (
-	"os"
-
 	"github.com/caarlos0/env/v10"
 	"github.com/joho/godotenv"
 	log "github.com/sirupsen/logrus"
@@ -14,11 +12,6 @@ type Config struct {
 }
 
 func New() *Config {
-	wd, err := os.Getwd()
-	if err != nil {
-		log.Fatal(err)
-	}
-	log.Infof("Working directory: %s", wd)
 	cfg := &Config{}
 	if err := godotenv.Load(); err != nil {
 		log.Warn("No .env file found")

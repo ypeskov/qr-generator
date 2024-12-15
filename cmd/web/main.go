@@ -1,15 +1,12 @@
 package main
 
 import (
-	"fmt"
-
 	"ypeskov/qr-generator/internal/config"
 	"ypeskov/qr-generator/internal/logger"
 	"ypeskov/qr-generator/internal/server"
 )
 
 func main() {
-	fmt.Println("Hello, world!")
 	cfg := config.New()
 
 	logger := logger.New(cfg)

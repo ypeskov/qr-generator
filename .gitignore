@@ -18,6 +18,9 @@
 go.work
 tmp/
 
+# Debug files
+__debug_*
+
 # IDE specific files
 .vscode
 .idea
@@ -25,8 +28,13 @@ tmp/
 # .env file
 .env
 
+
+
 # Project build
 main
 *templ.go
 
 *.sqlite3
+
+# Node modules
+node_modules/
