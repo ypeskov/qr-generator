@@ -18,14 +18,14 @@ func GenerateQRCode(c echo.Context) error {
 	log := c.Get(middleware.LoggerKey).(*logger.Logger)
 	log.Info("Generating QR code")
 
-	var dateToCode GenerateQRCodeRequest
-	if err := c.Bind(&dateToCode); err != nil {
+	var dataToCode GenerateQRCodeRequest
+	if err := c.Bind(&dataToCode); err != nil {
 		log.Error("Failed to bind request", err)
 		return render.Render(c, http.StatusBadRequest, nil, *log)
 	}
-	log.Info(fmt.Sprintf("Data to encode: {%+v} ", dateToCode))
+	log.Info(fmt.Sprintf("Data to encode: {%+v} ", dataToCode))
 
-	qrCode, err := qrcode.Encode(getQRCodeData(dateToCode), qrcode.Medium, 256)
+	qrCode, err := qrcode.Encode(getQRCodeData(dataToCode), qrcode.Medium, 256)
 	if err != nil {
 		log.Error("Failed to generate QR code", err)
 		return render.Render(c, http.StatusInternalServerError, nil, *log)
